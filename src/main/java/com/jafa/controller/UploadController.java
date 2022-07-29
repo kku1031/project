@@ -4,12 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.UUID;
 
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -29,7 +28,10 @@ public class UploadController {
 		}			
 		
 		for(MultipartFile multipartFile : uploadFile) {
-			File savefile = new File(uploadPath, multipartFile.getOriginalFilename());
+			String uploadFileName = multipartFile.getOriginalFilename();
+			UUID uuid = UUID.randomUUID();
+			uploadFileName = uuid.toString() + "_" + uploadFileName;
+			File savefile = new File(uploadPath, uploadFileName);
 			try {				
 				multipartFile.transferTo(savefile);
 			} catch (IllegalStateException e) {
