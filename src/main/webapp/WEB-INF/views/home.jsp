@@ -333,4 +333,4 @@
 			</form>
 		</div>
 	</section>
-	
+<%@ include file="layout/footer.jspf" %>	

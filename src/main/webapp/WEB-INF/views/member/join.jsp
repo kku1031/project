@@ -44,7 +44,7 @@
 </head>
 
 <body>
-<form:form action="/member/join" method="POST">
+<form:form action="${contextPath}/member/join" method="POST">
   <div class="container">
     <div class="input-form-backgroud row">
       <div class="input-form col-md-12 mx-auto">
@@ -54,40 +54,25 @@
             <div class="col-md-6 mb-3">
               <label for="userName">아이디</label>
               <input type="text" class="form-control" id="userName" placeholder="아이디를 입력해주세요" value="" required>
-              <div class="invalid-feedback">
-                아이디를 입력해주세요.
-              </div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="password">비밀번호</label>
               <input type="text" class="form-control" id="password" placeholder="비밀번호를 입력해주세요" value="" required>
-              <div class="invalid-feedback">
-                비밀번호를 입력해주세요
-              </div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="confirmPassword">비밀번호 확인</label>
               <input type="text" class="form-control" id="confirmPassword" placeholder="비밀번호를 재입력해주세요" value="" required>
-              <div class="invalid-feedback">
-                비밀번호를 재입력해주세요
-              </div>
             </div>
           </div>
 
           <div class="mb-3">
             <label for="email">이메일</label>
             <input type="email" class="form-control" id="email" placeholder="이메일 형식에 맞게 입력해주세요" required>
-            <div class="invalid-feedback">
-              이메일 형식에 맞게 입력해주세요
-            </div>
           </div>
 
           <div class="mb-3">
             <label for="add">주소</label>
             <input type="text" class="form-control" id="add" placeholder="주소를 입력해주세요." required>
-            <div class="invalid-feedback">
-              주소를 입력해주세요.
-            </div>
           </div>
 
           <div class="mb-3">
@@ -101,16 +86,21 @@
             <label class="custom-control-label" for="aggrement">개인정보 수집 및 이용에 동의합니다.</label>
           </div>
           <div class="mb-4"></div>
-          <button id="btn-save" class="btn btn-primary btn-lg btn-block">회원 가입 완료</button>
         </form>
+       <button id="btn-save" class="btn btn-primary btn-lg btn-block">회원 가입 완료</button>
       </div>
     </div>
     <footer class="my-3 text-center text-small">
-      <p class="mb-1">&copy; 2021 YD</p>
+      <p class="mb-1">&copy; 2022 3K</p>
     </footer>
   </div>
 </form:form> 
 </body>
+
+<script src="${contextPath}/js/member.js">
+
+
+</script>
 
 </html>
 <%@ include file="../layout/footer.jspf" %>
