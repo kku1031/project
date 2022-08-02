@@ -10,10 +10,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -90,5 +92,25 @@ public class UploadController {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	//썸네일 이미지 보여주기
+	@GetMapping("/display")
+	@ResponseBody
+	//getFile() 파일 경로가 포함된 fileName을 파라미터로 받고 byte[] 전송
+	//byte[]로 이미지 파일 데이터 전송시 브라우저 마다 MIME 타입이 파일의 종류에 따라 달리짐
+	//해결 : probeContentType()을 이용해 http의 헤더메시지에 포함될 수 있도록 처리
+	public ResponseEntity<byte[]> getFile(String fileName){
+		File file = new File("c:\\project\\"+fileName);
+		ResponseEntity<byte[]> result = null;
+		
+		HttpHeaders headers = new HttpHeaders();
+		try {
+			headers.add("Content-Type", Files.probeContentType(file.toPath()));
+			result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), headers, HttpStatus.OK);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
+		return result;
 	}
 }
