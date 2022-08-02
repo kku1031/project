@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="contextPath" value='${pageContext.request.contextPath}'></c:set>	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value='${pageContext.request.contextPath}'></c:set>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +23,7 @@
 		<ul></ul>
 	</div>
 	<!-- 원본 이미지를 보여줄 div 추가 -->
-	<div class="oImg"> </div>
+	<div class="oImg"></div>
 </body>
 <script>
 	$(function() {
@@ -84,6 +84,7 @@
 					let fileCellPath = encodeURIComponent(obj.uploadPath + "/" + obj.uuid + "_" +obj.fileName);
 					str+="<li><img src='${contextPath}/resources/assets/img/attach.png' style='width:50px;'>"
 					str+="<a href='${contextPath}/download?fileName="+fileCellPath+"'>"+obj.fileName+"</a>"
+					str+= "<span data-file='"+fileCellPath+"'' data-type='file'>삭제</span>"		
 					str+="</li>"
 				} else { //이미지인 경우 : encodeURIComponent를 사용하여 공백, 한글 이름 문제처리				
 					let fileCellPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" +obj.fileName);
@@ -92,17 +93,43 @@
 					
 					str+= "<li><img src='${contextPath}/display?fileName="+fileCellPath+"'>";
 					str+= "<a href='javascript:showImage(\""+originPath+"\")'>이미지원본보기</a>";
+					str+= "<span data-file='"+fileCellPath+"'' data-type='image'>삭제</span>"		
 					str+= "</li>"
 				}
 			});			
 			uploadResult.append(str);
 		}
+		
+		//게시판 파일 삭제
+		uploadResult.on('click', 'span', function(){
+			let targetFile = $(this).data('file');
+			let type = $(this).data('type');
+			
+			$.ajax({
+				url : contextPath + '/deleteFile',
+				type : 'post',
+				data : {
+					fileName : targetFile,
+					type : type
+				},
+				dataType : 'text',
+				success : function(result){
+					alert(result)
+				}
+			}) // .ajax end		
+		}) // event end
 	})
 	
+	
+	
+
+
 	//원본 이미지 보여주기
 	function showImage(path) {
 	let imgTag = "<img src='${contextPath}/display?fileName="+encodeURI(path)+"'>";	
 	$('.oImg').html(imgTag);
+	
+	
 		
 }
 	
