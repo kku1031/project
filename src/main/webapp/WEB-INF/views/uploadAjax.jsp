@@ -22,7 +22,8 @@
 	<div class="uploadResult">
 		<ul></ul>
 	</div>
-
+	<!-- 원본 이미지를 보여줄 div 추가 -->
+	<div class="oImg"> </div>
 </body>
 <script>
 	$(function() {
@@ -80,16 +81,30 @@
 			let str = "";
 			$(uploadResultArr).each(function (i,obj) {
 				if(!obj.image){ //이미지가 아닌 경우
-					str+="<li><img src='${contextPath}/resources/assets/img/attach.png' style='width:50px;'>"+ obj.fileName + "</li>"
+					let fileCellPath = encodeURIComponent(obj.uploadPath + "/" + obj.uuid + "_" +obj.fileName);
+					str+="<li><img src='${contextPath}/resources/assets/img/attach.png' style='width:50px;'>"
+					str+="<a href='${contextPath}/download?fileName="+fileCellPath+"'>"+obj.fileName+"</a>"
+					str+="</li>"
 				} else { //이미지인 경우 : encodeURIComponent를 사용하여 공백, 한글 이름 문제처리				
-					let fileCellPath = encodeURIComponent(obj.uploadPath + "/S_" + obj.uuid + "_" +obj.fileName);
-					str+= "<li><img src='${contextPath}/display?fileName="+fileCellPath+"'></li>";
+					let fileCellPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" +obj.fileName);
+					let originPath = obj.uploadPath+"\\"+obj.uuid+"_"+obj.fileName;
+					originPath = originPath.replace(new RegExp(/\\/g),"/");
 					
+					str+= "<li><img src='${contextPath}/display?fileName="+fileCellPath+"'>";
+					str+= "<a href='javascript:showImage(\""+originPath+"\")'>이미지원본보기</a>";
+					str+= "</li>"
 				}
 			});			
 			uploadResult.append(str);
 		}
 	})
+	
+	//원본 이미지 보여주기
+	function showImage(path) {
+	let imgTag = "<img src='${contextPath}/display?fileName="+encodeURI(path)+"'>";	
+	$('.oImg').html(imgTag);
+		
+}
 	
 </script>
 </html>
