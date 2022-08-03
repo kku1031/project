@@ -100,6 +100,8 @@
 			uploadResult.append(str);
 		}
 		
+		
+		
 		//게시판 파일 삭제
 		uploadResult.on('click', 'span', function(){
 			let targetFile = $(this).data('file');
@@ -119,15 +121,12 @@
 			}) // .ajax end		
 		}) // event end
 	})
-	
-	
-	
-
 
 	//원본 이미지 보여주기
 	function showImage(path) {
 	let imgTag = "<img src='${contextPath}/display?fileName="+encodeURI(path)+"'>";	
 	$('.oImg').html(imgTag);
+	
 	
 	
 		

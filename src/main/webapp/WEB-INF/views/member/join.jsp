@@ -64,7 +64,6 @@
               <input type="text" class="form-control" id="confirmPassword" placeholder="비밀번호를 재입력해주세요" value="" required>
             </div>
           </div>
-
           <div class="mb-3">
             <label for="email">이메일</label>
             <input type="email" class="form-control" id="email" placeholder="이메일 형식에 맞게 입력해주세요" required>

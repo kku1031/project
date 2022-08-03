@@ -73,7 +73,7 @@
 								<div class="shop-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src="assets/img/shop/2.jpg"
+							</div> <img class="img-fluid" src="#"
 							alt="..." />
 						</a>
 						<div class="shop-caption">
@@ -92,7 +92,7 @@
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src="assets/img/portfolio/3.jpg"
+							</div> <img class="img-fluid" src="#"
 							alt="..." />
 						</a>
 						<div class="portfolio-caption">
@@ -110,7 +110,7 @@
 								<div class="portfolio-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src="assets/img/portfolio/4.jpg"
+							</div> <img class="img-fluid" src="#"
 							alt="..." />
 						</a>
 						<div class="portfolio-caption">
@@ -128,7 +128,7 @@
 								<div class="shop-hover-content">
 									<i class="fas fa-plus fa-3x"></i>
 								</div>
-							</div> <img class="img-fluid" src="assets/img/shop/5.jpg"
+							</div> <img class="img-fluid" src="#"
 							alt="..." />
 						</a>
 						<div class="shop-caption">
@@ -262,13 +262,6 @@
 				<h3 class="section-subheading text-muted">Lorem ipsum dolor sit
 					amet consectetur.</h3>
 			</div>
-			<!-- * * * * * * * * * * * * * * *-->
-			<!-- * * SB Forms Contact Form * *-->
-			<!-- * * * * * * * * * * * * * * *-->
-			<!-- This form is pre-integrated with SB Forms.-->
-			<!-- To make this form functional, sign up at-->
-			<!-- https://startbootstrap.com/solution/contact-forms-->
-			<!-- to get an API token!-->
 			<form id="contactForm" data-sb-form-api-token="API_TOKEN">
 				<div class="row align-items-stretch mb-5">
 					<div class="col-md-6">
