@@ -10,7 +10,7 @@ public class MemberController {
 	
 	// 회원가입 컨트롤러
 	@GetMapping("/join")
-	public String joinForm() {
+	public String memberForm() {
 		return "member/join";
 	}
 	

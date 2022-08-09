@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 시프링 시큐리티 동작을 위한  최소 설정 -->
+	<sec:http>
+		<sec:intercept-url pattern="/security/all" access="permitAll"/> <!-- 모든 사용자 접근 페이지 -->
+		<sec:intercept-url pattern="/security/member" access="hasRole('ROLE_MEMBER')"/> <!-- 회원가입 사용자 접근 페이지 -->
+		<sec:intercept-url pattern="/security/admin" access="hasRole('ROLE_ADMIN')"/> <!-- 관리자 접근 페이지 -->
+		<sec:form-login/>
+		<sec:access-denied-handler error-page="/accessError"/>
+	</sec:http>
+	
+	<sec:authentication-manager>
+		<sec:authentication-provider>
+			<sec:user-service>
+				<sec:user name="kku1031" password="{noop}1234" authorities="ROLE_MEMBER"/>
+				<sec:user name="admin" password="{noop}1234" authorities="ROLE_MEMBER,ROLE_ADMIN"/>
+			</sec:user-service>
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+	
+	
+
+</beans>

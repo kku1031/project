@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.jafa.model.AttachFile;
+import com.jafa.model.BoardAttachVO;
 
 import net.coobird.thumbnailator.Thumbnailator;
 
@@ -42,42 +42,42 @@ public class UploadController {
 	//데이터를 전송하기 위해 @ResponseBody 추가 @PostMapping경로 수정
 	@PostMapping(value = "/uploadAjaxAction", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public ResponseEntity<List<AttachFile>> uploadAjaxPost(MultipartFile[] uploadFile) {
-		List<AttachFile> list = new ArrayList<AttachFile>(); //파일업로드를 위한 리스트 생성		
+	public ResponseEntity<List<BoardAttachVO>> uploadAjaxPost(MultipartFile[] uploadFile) {
+		List<BoardAttachVO> list = new ArrayList<BoardAttachVO>(); //파일업로드를 위한 리스트 생성		
 		File uploadPath = new File("c:\\project", getFolder());
 		if (!uploadPath.exists()) {
 			uploadPath.mkdirs(); //  부모디렉터리 여부와 관계 없이 자식 디렉터리 생성 c:\\project
 		}
 
 		for (MultipartFile multipartFile : uploadFile) {
-			AttachFile attachFile = new AttachFile(); // 파일업로드를 위한 객체 생성
+			BoardAttachVO attachVO = new BoardAttachVO(); // 파일업로드를 위한 객체 생성
 			String uploadFileName = multipartFile.getOriginalFilename();
-			attachFile.setFileName(uploadFileName); // Random(uuid) 적용전 원본 파일 세팅
+			attachVO.setFileName(uploadFileName); // Random(uuid) 적용전 원본 파일 세팅
 			
 			UUID uuid = UUID.randomUUID();
 			uploadFileName = uuid.toString() + "_" + uploadFileName;
 			File savefile = new File(uploadPath, uploadFileName);
 			try {
 				multipartFile.transferTo(savefile);
-				attachFile.setUuid(uuid.toString()); // Random(uuid) 적용
-				attachFile.setUploadPath(getFolder()); // 업로드 폴더로 경로지정
+				attachVO.setUuid(uuid.toString()); // Random(uuid) 적용
+				attachVO.setUploadPath(getFolder()); // 업로드 폴더로 경로지정
 				
 				//이미지 파일일 때 썸네일을 생성 하도록 구현
 				if (checkImageType(savefile)) {
 					
-					attachFile.setImage(true); // 이미지인지 아닌지 여부 판단
+					attachVO.setFileType(true); // 이미지인지 아닌지 여부 판단
 					
 					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "S_" + uploadFileName));
 					Thumbnailator.createThumbnail(multipartFile.getInputStream(), thumbnail, 100, 100);
 				}
-					list.add(attachFile); // 어태치파일 리스트 추가
+					list.add(attachVO); // 어태치파일 리스트 추가
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}		
-		return new ResponseEntity<List<AttachFile>>(list,HttpStatus.OK);
+		return new ResponseEntity<List<BoardAttachVO>>(list,HttpStatus.OK);
 	}
 
 	// 오늘 날짜 경로를 문자열로 생성

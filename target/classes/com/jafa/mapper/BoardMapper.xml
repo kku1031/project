@@ -33,11 +33,11 @@
 		select * from board_tbl where bno = #{bno}
 	</select>
 	<insert id="insert">
-		<selectKey keyProperty="bno" resultType="java.lang.Long" order="AFTER">
-			  SELECT LAST_INSERT_ID()
+		<selectKey keyProperty="bno" resultType="java.lang.Long" order="BEFORE">
+			  select max(bno)+1 from board_tbl
 		</selectKey>
-		insert into board_tbl(title,content, writer)
-		values (#{title}, #{content}, #{writer})
+		insert into board_tbl(bno, title,content,writer)
+		values (#{bno},#{title},#{content},#{writer});
 	</insert>
 	<update id="update">
 		update board_tbl set

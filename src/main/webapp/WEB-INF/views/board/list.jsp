@@ -107,7 +107,7 @@
 <script>
 
 $(function(){
-	// 등록,수정,삭제 피드백
+	/* // 등록,수정,삭제 피드백
 	let result = "${result}"
 	let message = "";
 	if(result.trim()!=''){
@@ -120,7 +120,9 @@ $(function(){
 		}
 		$('.message').append(message); 
 		$('#feedback').modal('show');
-	}
+	}  */
+	
+	
 	
 	//게시글로 이동(콘솔에 번호 확인)
 	$('.article').on('click',function(e){
