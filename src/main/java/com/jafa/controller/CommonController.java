@@ -18,7 +18,6 @@ public class CommonController {
 	@RequestMapping("/customLogin")
 	public String loginForm(String error, Model model) {
 		if(error!=null) {
-			System.out.println(error);
 			model.addAttribute("error",error);
 		}
 		return "member/login";

@@ -9,12 +9,14 @@
 	<!-- 회원, 관리자로 각각 로그인 성공 시 회원으로 이동하는 페이지, 관리자로 이동하는 페이지로 자동 지정 -->
 	<bean id="customLoginSuccessHandler" class="com.jafa.security.CustomLoginSuccessHandler"></bean>
 	
+	<!-- bcryptPasswordEncoder 활용하여 passEncoder문제해결 -->	
+	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	
 	<!-- 시프링 시큐리티 동작을 위한  최소 설정 -->
-	<sec:http>
-		
+	<sec:http>		
 		<!-- 로그인 처리 -->
 		<sec:intercept-url pattern="/security/all" access="permitAll"/> <!-- 모든 사용자 접근 페이지 -->
-		<sec:intercept-url pattern="/security/member" access="hasRole('ROLE_MEMBER')"/> <!-- 회원가입 사용자 접근 페이지 -->
+		<sec:intercept-url pattern="/security/member" access="hasRole('ROLE_USER')"/> <!-- 회원가입 사용자 접근 페이지 -->
 		<sec:intercept-url pattern="/security/admin" access="hasRole('ROLE_ADMIN')"/> <!-- 관리자 접근 페이지 -->
 		<sec:form-login login-page="/customLogin"
 		 login-processing-url="/member/login" 
@@ -30,13 +32,11 @@
 	<!-- 권한 부여 -->
 	<sec:authentication-manager>
 		<sec:authentication-provider>
-			<sec:user-service>
-				<sec:user name="kku1031" password="{noop}1234" authorities="ROLE_MEMBER"/>
-				<sec:user name="admin" password="{noop}1234" authorities="ROLE_MEMBER,ROLE_ADMIN"/>
-			</sec:user-service>
+			<!-- JDBC 이용하기 위해 sql에서 테이블 설정 후 작성 -->				
+			<sec:jdbc-user-service data-source-ref="dataSource"			
+				users-by-username-query="select userId, userPw, enabled from member_tbl where userId = ? "
+				authorities-by-username-query="select userId, auth from member_auth where userId = ?"/> 
+			<sec:password-encoder ref="bcryptPasswordEncoder"/>
 		</sec:authentication-provider>
 	</sec:authentication-manager>
-	
-	
-
 </beans>
