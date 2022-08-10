@@ -5,15 +5,29 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<!-- 로그인 성공 후 처리를 담당하는 bean 등록 form login에  authentication-success-handler-ref="customLoginSuccessHandler" 추가 -->
+	<!-- 회원, 관리자로 각각 로그인 성공 시 회원으로 이동하는 페이지, 관리자로 이동하는 페이지로 자동 지정 -->
+	<bean id="customLoginSuccessHandler" class="com.jafa.security.CustomLoginSuccessHandler"></bean>
+	
 	<!-- 시프링 시큐리티 동작을 위한  최소 설정 -->
 	<sec:http>
+		
+		<!-- 로그인 처리 -->
 		<sec:intercept-url pattern="/security/all" access="permitAll"/> <!-- 모든 사용자 접근 페이지 -->
 		<sec:intercept-url pattern="/security/member" access="hasRole('ROLE_MEMBER')"/> <!-- 회원가입 사용자 접근 페이지 -->
 		<sec:intercept-url pattern="/security/admin" access="hasRole('ROLE_ADMIN')"/> <!-- 관리자 접근 페이지 -->
-		<sec:form-login/>
-		<sec:access-denied-handler error-page="/accessError"/>
+		<sec:form-login login-page="/customLogin"
+		 login-processing-url="/member/login" 
+		 authentication-success-handler-ref="customLoginSuccessHandler"
+		 /> 
+		<sec:access-denied-handler error-page="/accessError"/> <!-- 접근 제한페이지 이동 -->
+		<sec:csrf disabled="true"/> <!-- csrf 보안을 설정, 사이트 위조방지 -->
+		
+		<!-- 로그아웃 처리 -->		
+		<sec:logout logout-url="/customLogout" invalidate-session="true"/>
 	</sec:http>
 	
+	<!-- 권한 부여 -->
 	<sec:authentication-manager>
 		<sec:authentication-provider>
 			<sec:user-service>

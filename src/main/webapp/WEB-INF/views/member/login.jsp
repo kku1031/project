@@ -9,16 +9,15 @@
 		</div>
 		<form action="${contextPath}/member/login" method="post">
 			<div class="form-group">
-				<input type="text" name="loginId" value="${loginId}" placeholder="아이디" class="form-control">
+				<input type="text" name="username" placeholder="아이디" class="form-control">
 			</div>
 			<div class="form-group">
-				<input type="password" name="loginPw" value="${loginPw}"  placeholder="비밀번호" class="form-control">
+				<input type="password" name="password" placeholder="비밀번호" class="form-control">
 			</div>
 			<div class="form-group">
 				<input type="checkbox" name="remember-me" id="remember-me">
 				<label for="remember-me">Remember Me</label>
-			</div>
-			
+			</div>			
 			<div class="form-group">				
 				<button class="btn btn-primary form-control">로그인</button>
 			</div>
