@@ -40,7 +40,7 @@ public class MemberTests extends AppTest {
 	}
 	
 	@Test
-	
+	@Ignore
 	public void adminInsertTest() {
 		String sql = "insert into member_auth(userId, auth) values(?,?)";
 		Connection conn = null;
