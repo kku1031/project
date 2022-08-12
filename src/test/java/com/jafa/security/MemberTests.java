@@ -50,7 +50,7 @@ public class MemberTests extends AppTest {
 			conn = dataSource.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, "admin");
-			pstmt.setString(2, "ROLE_ADMIN");
+			pstmt.setString(2, "ROLE_MEMBER");
 		
 			pstmt.executeUpdate();			
 		} catch (SQLException e) {

@@ -30,6 +30,13 @@
 		
 		<!-- 로그아웃 처리 -->		
 		<sec:logout logout-url="/customLogout" invalidate-session="true"/>
+		
+		<!-- 자동로그인 처리 -->
+		<sec:remember-me data-source-ref="dataSource" token-validity-seconds="604800" />
+		
+		<!-- 로그아웃 쿠키 삭제 처리 -->
+		<sec:logout logout-url="/customLogout" 
+			invalidate-session="true" delete-cookies="remember-me, JSESSION_ID"/>		
 	</sec:http>
 	
 	<!-- 권한 부여 -->

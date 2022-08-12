@@ -107,7 +107,8 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>5.1.5.RELEASE</version>
-		</dependency>		
+		</dependency>
+		<!-- jsp에서 스프링 시큐리티를 사용하기 위한 xml-->		
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>

@@ -7,16 +7,15 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.Import;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @MapperScan("com.jafa.mapper")
-@ImportResource(value = {
-		"classpath:config/security-context.xml"
-})
+//@ImportResource(value = {"classpath:config/security-context.xml"})
+@Import(value = {ServletConfig.class})
 public class RootConfig {	
 	
 	@Bean

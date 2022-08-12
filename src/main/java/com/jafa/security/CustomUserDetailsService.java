@@ -20,7 +20,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
 		MemberVO memberVO = mapper.read(username);
-
+		
+		System.out.println(memberVO);
+		
 		if (memberVO == null) {
 			throw new UsernameNotFoundException(username);
 		}

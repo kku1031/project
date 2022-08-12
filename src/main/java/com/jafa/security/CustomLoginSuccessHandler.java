@@ -24,11 +24,14 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler{
 			roleNames.add(authority.getAuthority());
 		});
 		
+		System.out.println(roleNames);
 		if(roleNames.contains("ROLE_ADMIN")) {
+			System.out.println("관리자 로그인");
 			response.sendRedirect(request.getContextPath()+"/security/admin");
 			return;
 		}
 		if(roleNames.contains("ROLE_MEMBER")) {
+			System.out.println("일반회원 로그인");
 			response.sendRedirect(request.getContextPath()+"/security/member");
 			return;
 		}
