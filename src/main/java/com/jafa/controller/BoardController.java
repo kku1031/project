@@ -88,7 +88,7 @@ public class BoardController {
 		return "redirect:list";
 	}
 	
-	//글 삭제	
+	//파일삭제	
 	private void deleteFiles(List<BoardAttachVO> attachList) {
 		if(attachList == null || attachList.size()==0) return;
 		attachList.forEach(attach -> {

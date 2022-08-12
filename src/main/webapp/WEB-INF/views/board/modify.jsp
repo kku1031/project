@@ -1,13 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jspf"%>
+
+<script>
+
+let bnoValue = "${board.bno}";
+</script>
 <div class="container">
 	<div class="jumbotron my-3">
 		<h3>수정 페이지</h3>
 	</div>
-
-	<form action="${contextPath}/board/modify" method="post" id="modifyForm">
-			<input type="hidden" name="bno" value="${board.bno}">
+	<form action="${contextPath}/board/modify" method="post" id="modifyForm" enctype="multipart/form-data">
+			<!-- 시큐리티 토큰 추가 -->
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+			<input type="hidden" name="bno" value="${board.bno}">			
+			<input type="hidden" name="writer" value="${board.writer}">				
 			<div class="form-group">
 				<label>제목 : </label> <input type="text" class="form-control"
 					name="title" value="${board.title}">
@@ -41,11 +48,9 @@
 					</div>
 				</div>
 			</div>
-		
 </div>
 
 <script>
-
 
 function showUploadResult(uploadResultArr){
 	if(!uploadResultArr || uploadResultArr.length == 0) return;
@@ -92,8 +97,9 @@ function checkExtension(fileName, fileSize){
 }
 
 
+//삭제
 $(function(){
-	let bnoValue = "${board.bno}";
+	
 	$.getJSON(contextPath+"/board/getAttachList", {bno : bnoValue}, function(attachList){
 		showUploadResult(attachList);
 	}) // $.getJSON end
@@ -101,6 +107,7 @@ $(function(){
 	$('.uploadResult ul').on('click','span',function(){
 		let targetLi = $(this).closest('li');
 		targetLi.remove(); 
+		console.log(targetLi)
 		
 	}) // delete event end
 	
@@ -122,10 +129,12 @@ $(function(){
 			contentType : false, 
 			data : formData, 
 			dataType : 'json', 
+			beforeSend : function(xhr){
+				xhr.setRequestHeader(csrfHeaderName, csrfTokenName);
+			}, //시큐리티 접목 후 토큰 추가
 			success : function(result){
 				showUploadResult(result);
-			}
-			
+			}			
 		});
 	}) // change event end
 	
@@ -133,7 +142,6 @@ $(function(){
 	let modifyBtn =  $('#modifyForm button');
 	modifyBtn.on('click',function(e){
 		e.preventDefault();
-		// console.log('기본동작금지');
 		let str = "";
 		$('.uploadResult ul li').each(function(i,obj){
 			let jobj = $(obj);

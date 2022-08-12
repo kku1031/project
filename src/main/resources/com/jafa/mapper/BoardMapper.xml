@@ -25,6 +25,7 @@
 	<select id="getList" resultType="com.jafa.model.Board">
 		select * from board_tbl
 		<include refid="searchCondition"></include>
+		order by bno desc
 		limit #{pageStart}, #{perPageNum}
 		
 	</select>

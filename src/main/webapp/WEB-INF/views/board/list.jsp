@@ -8,6 +8,12 @@
 	
 	<div class="row">
 		<div class="col-md-9">
+			<div class="listData">
+					<input type="hidden" name="bno" id="bno" value="">
+					<input type="hidden" name="page" id="page" value="${pageMaker.criteria.page}">
+					<input type="hidden" name="type" id="type" value="${pageMaker.criteria.type}">
+					<input type="hidden" name="keyword" id="keyword" value="${pageMaker.criteria.keyword}">
+			</div>
 			<form action="${contextPath}/board/list" id="searchForm">
 				<input type="hidden" name="page" value="${pageMarker.criteria.page}">
 				<div class="row">

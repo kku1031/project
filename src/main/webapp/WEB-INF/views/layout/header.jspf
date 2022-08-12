@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -22,7 +21,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- 스타일 cs 적용 -->
 <link href="${contextPath}/resources/css/styles.css" rel="stylesheet" />
-<script>let contextPath="${contextPath}"</script>
+<!-- 시큐리티 접목 후 토큰 추가 -->
+<script>
+let contextPath="${contextPath}"
+let csrfHeaderName = "${_csrf.headerName}";
+let csrfTokenName = "${_csrf.token}";
+</script>
 </head>
 <body id="page-top"></body>
 	<!-- Navigation-->
@@ -44,7 +48,7 @@
 					<li class="nav-item">
 						<a class="nav-link"><sec:authentication property="principal.username"/>님이 로그인 하였습니다.</a>						
 					</li>	
-					<li  class="nav-item">
+					<li  class="nav-item" ac>
 						<a class="nav-link" href="${contextPath}/customLogout">로그아웃</a>
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 					</li>				

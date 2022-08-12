@@ -1,19 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jspf"%>
-<script src="${contextPath}/resources/js/get.js">
-	
-</script>
-<script>
-	let bnoValue = $
-	{
-		board.bno
-	};
-</script>
-
+<script src="${contextPath}/resources/js/get.js"></script>
+<script>let bnoValue = ${board.bno}; </script>
 <input type="hidden" name="bno" value="${board.bno}" id="bno">
-<input type="hidden" name="page"
-	value="${param.page == '' ? 1 : param.page}" id="page">
+<input type="hidden" name="page" value="${param.page == '' ? 1 : param.page}" id="page">
 <input type="hidden" name="type" value="${param.type}" id="type">
 <input type="hidden" name="keyword" value="${param.keyword}"
 	id="keyword">
@@ -22,7 +13,15 @@
 	<div class="jumbotron">
 		<h2>게시글 조회</h2>
 	</div>
+	<div class="getData">
+		<input type="hidden" name="page" id="page" value="${param.page}">
+		<input type="hidden" name="type" id="type" value="${param.type}">
+		<input type="hidden" name="keyword" id="keyword" value="${param.keyword}">
+		<input type="hidden" name="writer" id="writer" value="${board.writer}">
+	</div>
 	<form id="getForm">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+		<input type="hidden" name="bno" value="${board.bno}">
 		<div class="card">
 			<div class="card-header">
 				<div class="row">
@@ -34,6 +33,7 @@
 			<div class="card-footer d-flex justify-content-between">
 				<div>
 					<button class="btn btn-warning modify">수정</button>
+					
 					<button class="btn btn-danger remove">삭제</button>
 					<button class="btn btn-success list">목록</button>
 				</div>

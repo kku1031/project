@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor @NoArgsConstructor
 public class MemberVO {
 	
-	//회원 도메인 설계
+	//로그인, 회원 도메인 설계
 	private String userId;
 	private String userPw;
 	private String userName;
