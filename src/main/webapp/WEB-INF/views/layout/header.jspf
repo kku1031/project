@@ -28,7 +28,7 @@ let csrfHeaderName = "${_csrf.headerName}";
 let csrfTokenName = "${_csrf.token}";
 </script>
 </head>
-<body id="page-top"></body>
+<body id="page-top">
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
 		<div class="container">
@@ -47,10 +47,20 @@ let csrfTokenName = "${_csrf.token}";
 					<sec:authorize access="isAuthenticated()">
 					<li class="nav-item">
 						<a class="nav-link"><sec:authentication property="principal.username"/>님이 로그인 하였습니다.</a>						
-					</li>	
-					<li  class="nav-item" ac>
-						<a class="nav-link" href="${contextPath}/customLogout">로그아웃</a>
-						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+					</li>					
+					<li  class="nav-item">
+						<form action="${contextPath}/customLogout" method="post">
+							<a href="#" class="nav-link logoutBtn">로그아웃</a>
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+						</form>
+					</li>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<li class="nav-item">						
+						<a class="nav-link" href="${contextPath}/security/admin">관리자페이지</a>
+					</li>
+					</sec:authorize>
+					<li class="nav-item">						
+						<a class="nav-link" href="${contextPath}/security/member">회원페이지</a>
 					</li>				
 					</sec:authorize>
 				</ul>								  
@@ -65,5 +75,12 @@ let csrfTokenName = "${_csrf.token}";
 			<a class="btn btn-primary btn-xl text-uppercase" href="#intro"> 홈페이지 상세정보</a>
 		</div>
 	</header>
-</html>
+</body>
+	
+<script>
+	$('.logoutBtn').on('click',function(e){
+		e.preventDefault();
+		$(this).closest('form').submit();
+	})
+</script>
 
