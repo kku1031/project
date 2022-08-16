@@ -12,6 +12,7 @@ public class User {
 	
 	private String userId;
 	private String password;
+	private String confirmPassword;
 	private String name;
 	private String email;
 	private String add;

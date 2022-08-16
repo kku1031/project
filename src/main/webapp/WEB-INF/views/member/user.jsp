@@ -2,15 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <title>(주) HG 기타</title>
-
 <!-- Favicon 아이콘-->
 <link rel="icon" type="image/x-icon" href="${contextPath}/resources/assets/favicon.ico" />
 <!-- Font Awesome icons (free version)-->
@@ -27,35 +24,29 @@ let contextPath="${contextPath}"
 let csrfHeaderName = "${_csrf.headerName}";
 let csrfTokenName = "${_csrf.token}";
 </script>
+</head>
 <body>
 <div class="container">
-	<h2>관리자 페이지</h2>
-	<div>
-		MemberVO : <sec:authentication property="principal.memberVO" var="member"/><br> 
-		아이디 : <sec:authentication property="principal.memberVO.userId"/><br>
-		이름 : <sec:authentication property="principal.memberVO.userName" /><br>
-		권한 : <sec:authentication property="principal.memberVO.authList"/><br>
-	</div>	 
-</div>
-<div class="container">
 	<table class="table table-condensed">
-		<caption>사용자목록</caption>
-		<thread>
 			<tr>
 				<th>사용자 아이디</th>
+				<th>비밀번호</th>
+				<th>비밀번호 재확인</th>
 				<th>이름</th>
 				<th>이메일</th>
 				<th>주소</th>
-			</tr>
-		</thread>
-		<tbody>
+			</tr>			
+			<c:forEach items="${users}" var="b">
 			<tr>
-				<th></th>
-				<td></td>
-				<td></td>
-			</tr>
-		</tbody>	
-	</table>
+					<td>${b.userId}</td>
+					<td>${b.password}</td>
+					<td>${b.confirmPassword}</td>
+					<td>${b.name}</td>
+					<td>${b.email}</td>
+					<td>${b.add}</td>
+			</tr>		
+			</c:forEach>
+	</table>	
 </div>
 </body>
 <%@include file="../layout/footer.jspf"%>

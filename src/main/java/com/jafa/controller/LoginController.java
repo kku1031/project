@@ -15,7 +15,7 @@ public class LoginController {
 		return "member/login";
 	}
 	
-	//회원 가입 시 main으로 보냄
+	//로그인 시 main으로 보냄
 	@PostMapping("/login")
 	public String loginTrans() {
 		return "redirect:/";
