@@ -5,7 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class MemberController {
+@RequestMapping("/member")
+public class UserController {
 	
 	
 	// 회원가입 컨트롤러
