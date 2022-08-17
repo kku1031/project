@@ -31,7 +31,6 @@ let csrfTokenName = "${_csrf.token}";
 			<tr>
 				<th>사용자 아이디</th>
 				<th>비밀번호</th>
-				<th>비밀번호 재확인</th>
 				<th>이름</th>
 				<th>이메일</th>
 				<th>주소</th>
@@ -40,10 +39,9 @@ let csrfTokenName = "${_csrf.token}";
 			<tr>
 					<td>${b.userId}</td>
 					<td>${b.password}</td>
-					<td>${b.confirmPassword}</td>
-					<td>${b.name}</td>
+					<td>${b.userName}</td>
 					<td>${b.email}</td>
-					<td>${b.add}</td>
+					<td>${b.address}</td>
 			</tr>		
 			</c:forEach>
 	</table>	

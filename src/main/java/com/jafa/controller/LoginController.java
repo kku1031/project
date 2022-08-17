@@ -20,6 +20,4 @@ public class LoginController {
 	public String loginTrans() {
 		return "redirect:/";
 	}
-	
-	
 }

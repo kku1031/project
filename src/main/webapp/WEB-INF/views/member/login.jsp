@@ -20,7 +20,7 @@
       <br>      
       <input type="text" name="username" placeholder="아이디" required="required" />
       <input type="password" name="password" placeholder="비밀번호" required="required" />
-      <a href="${contextPath}/member/join">계정이 없으십니까?</a>
+      <a href="${contextPath}/join/register">계정이 없으십니까?</a>
       <button>로그인 </button>
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">      
     </form>

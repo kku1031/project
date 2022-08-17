@@ -9,9 +9,8 @@ import lombok.ToString;
 @Getter @Setter @ToString
 @AllArgsConstructor @NoArgsConstructor
 public class AuthVO {
-	
 	//권한 부여
 	private String userId;
-	private String auth;	
+	private String auth;
 
 }

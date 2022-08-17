@@ -16,9 +16,11 @@ public class MemberVO {
 	private String userId;
 	private String userPw;
 	private String userName;
+	private String email;
+	private String address;
 	private boolean enabled;
 	private LocalDateTime regDate;
 	private LocalDateTime updateDate;
-	private  List<AuthVO> authList;
-	
+	private List<AuthVO> authList;
+	private AuthVO auth;
 }

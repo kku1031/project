@@ -15,13 +15,13 @@
 <div class="container" id="container">  
   <!-- 로그인 -->
   <div class="form-container sign-in-container">
-    <form action="${contextPath}/member/join" method="POST">  
+    <form action="${contextPath}/join/register" method="POST">  
       <input type="text" name="userId" placeholder="사용자아이디" required="required" />
-      <input type="password" name="password" placeholder="비밀번호" required="required" />
-      <input type="password" name="userId" placeholder="비밀번호재확인" required="required" />
-      <input type="text" name="name" placeholder="이름" required="required" />
+      <input type="password" name="userPw" placeholder="비밀번호" required="required" />
+      <input type="password" name="confirmPassword" placeholder="비밀번호재확인" required="required" />
+      <input type="text" name="userName" placeholder="이름" required="required" />
       <input type="email" name="email" placeholder="이메일" required="required" />
-      <input type="text" name="add" placeholder="주소" required="required" />      
+      <input type="text" name="address" placeholder="주소" required="required" />      
       <a href="${contextPath}/member/login">로그인 하기</a>
       <button type="submit" class="btn btn-default">회원가입 </button>
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
