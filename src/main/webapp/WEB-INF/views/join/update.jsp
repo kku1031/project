@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="ko">
@@ -35,29 +33,26 @@
 	let csrfHeaderName = "${_csrf.headerName}";
 	let csrfTokenName = "${_csrf.token}";
 </script>
+
 <body>
-	<div class="container px-4 px-lg-5">
-		<div class="container">
-			<h2>관리자 페이지</h2>
-			<div>
-				MemberVO :
-				<sec:authentication property="principal.memberVO" var="member" />
-				<br> 아이디 :
-				<sec:authentication property="principal.memberVO.userId" />
-				<br> 이름 :
-				<sec:authentication property="principal.memberVO.userName" />
-				<br> 권한 :
-				<sec:authentication property="principal.memberVO.authList" />
-				<br>
-			</div>
-
-		</div>
-
-		<div style="margin-bottom: 10px;">
-				<a class="btn btn-secondary btn-xl" href="${contextPath}/menu/res/list">초진예약자 리스트</a>
-				<a class="btn btn-success btn-xl" href="${contextPath}/join/list">회원관리</a> 
-				<a class="btn btn-warning btn-xl" href="${contextPath}/join/update">회원수정</a>
-		</div>				
-	</div>
+<div class="container">
+	<table class="table table-condensed">
+			<tr>
+				<th>사용자 아이디</th>
+				<th>비밀번호</th>
+				<th>이름</th>
+				<th>이메일</th>
+				<th>주소</th>
+			</tr>			
+			<c:forEach items="${updates}" var="c">
+			<tr>
+					<td>${c.userId}</td>
+					<td>${c.userPw}</td>
+					<td>${c.userName}</td>
+					<td>${c.email}</td>
+					<td>${c.address}</td>
+			</tr>		
+			</c:forEach>
+	</table>		
+</div>
 </body>
-<%@include file="../layout/footer.jspf"%>

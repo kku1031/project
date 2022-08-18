@@ -14,19 +14,17 @@ import com.jafa.model.MemberVO;
 public class CustomUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	MemberMapper mapper;
-
+	MemberMapper mapper;	
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		MemberVO memberVO = mapper.read(username);
-		
-		System.out.println(memberVO);
+		MemberVO memberVO = mapper.read(username);		
 		
 		if (memberVO == null) {
 			throw new UsernameNotFoundException(username);
 		}
-
+			
 		return new CustomUser(memberVO);
 
 	}

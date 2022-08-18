@@ -35,7 +35,6 @@ public class CustomUser extends User{
 				.map(vo -> new SimpleGrantedAuthority(vo.getAuth()))
 				.collect(Collectors.toList())
 		);
-		System.out.println(memberVO);
 		this.memberVO = memberVO;
 	}
 	

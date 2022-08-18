@@ -11,6 +11,8 @@ import lombok.Setter;
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
 public class MemberVO {
+	//번호지정
+	private Long id;
 	
 	//로그인, 회원 도메인 설계
 	private String userId;

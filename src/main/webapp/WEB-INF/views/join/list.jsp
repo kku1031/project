@@ -7,24 +7,33 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <title>(주) HG 기타</title>
+
 <!-- Favicon 아이콘-->
-<link rel="icon" type="image/x-icon" href="${contextPath}/resources/assets/favicon.ico" />
+<link rel="icon" type="image/x-icon"
+	href="${contextPath}/resources/assets/favicon.ico" />
 <!-- Font Awesome icons (free version)-->
-<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"	crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
+	crossorigin="anonymous"></script>
 <!-- 폰트 설정 -->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"	rel="stylesheet" type="text/css" />
-<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css" />
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
+	rel="stylesheet" type="text/css" />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- 스타일 cs 적용 -->
 <link href="${contextPath}/resources/css/styles.css" rel="stylesheet" />
 <!-- 시큐리티 접목 후 토큰 추가 -->
 <script>
-let contextPath="${contextPath}"
-let csrfHeaderName = "${_csrf.headerName}";
-let csrfTokenName = "${_csrf.token}";
+	let contextPath = "${contextPath}"
+	let csrfHeaderName = "${_csrf.headerName}";
+	let csrfTokenName = "${_csrf.token}";
 </script>
-</head>
+
 <body>
 <div class="container">
 	<table class="table table-condensed">
@@ -35,16 +44,17 @@ let csrfTokenName = "${_csrf.token}";
 				<th>이메일</th>
 				<th>주소</th>
 			</tr>			
-			<c:forEach items="${users}" var="b">
+			<c:forEach items="${lists}" var="b">
 			<tr>
 					<td>${b.userId}</td>
-					<td>${b.password}</td>
+					<td>${b.userPw}</td>
 					<td>${b.userName}</td>
 					<td>${b.email}</td>
 					<td>${b.address}</td>
 			</tr>		
 			</c:forEach>
-	</table>	
+	</table>
+		
 </div>
 </body>
 <%@include file="../layout/footer.jspf"%>
