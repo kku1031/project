@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>   
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/> 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -12,20 +13,31 @@
 </head>
 <body>
 <h2> 회원가입 페이지에 오신 것을 환영합니다. </h2>
-<div class="container" id="container">  
-  <!-- 로그인 -->
+<div class="container" id="container">   
   <div class="form-container sign-in-container">
-    <form action="${contextPath}/join/register" method="POST">  
-      <input type="text" name="userId" placeholder="사용자아이디" required="required" />
-      <input type="password" name="userPw" placeholder="비밀번호" required="required" />
-      <input type="password" name="confirmPassword" placeholder="비밀번호재확인" required="required" />
-      <input type="text" name="userName" placeholder="이름" required="required" />
-      <input type="email" name="email" placeholder="이메일" required="required" />
-      <input type="text" name="address" placeholder="주소" required="required" />      
+    <form:form action="${contextPath}/join/register" method="POST" modelAttribute="memberVO">      
+      <form:input type="text" path="userId" placeholder="사용자아이디"/>
+      <form:errors path="userId"/>      
+                      
+      <form:input type="password" path="userPw" placeholder="비밀번호"/>
+      <form:errors path="userPw"/>
+      
+      <form:input type="password" path="confirmPw" placeholder="비밀번호 재확인"/>
+      <form:errors path="confirmPw"/>        
+             
+      <form:input type="text" path="userName" placeholder="이름"/>
+      <form:errors path="userName"/>   
+      
+      <form:input type="email" path="email" placeholder="이메일"/>
+      <form:errors path="email"/>      
+      
+      <form:input type="text" path="address" placeholder="주소"/> 
+      <form:errors path="address"/>
+         
       <a href="${contextPath}/member/login">로그인 하기</a>
       <button type="submit" class="btn btn-default">회원가입 </button>
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-    </form>
+    </form:form>
   </div>
   <div class="overlay-container">
     <div class="overlay">

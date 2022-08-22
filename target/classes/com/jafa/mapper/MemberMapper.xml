@@ -6,8 +6,8 @@
 		<result property="userId" column="userId" />
 		<result property="userPw" column="userPw" />
 		<result property="userName" column="userName" />
-		<result property="email" column="userName" />
-		<result property="address" column="userName" />
+		<result property="email" column="email" />
+		<result property="address" column="address" />
 		<result property="enabled" column="enabled" />
 		<result property="regDate" column="regDate" />
 		<result property="updateDate" column="updateDate" />

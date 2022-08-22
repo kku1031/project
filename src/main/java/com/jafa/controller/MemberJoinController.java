@@ -2,9 +2,12 @@
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +25,7 @@ public class MemberJoinController {
 	
 	// 회원가입 페이지로 접속
 	@GetMapping("/register")
-	public String joinForm() {
+	public String joinForm(MemberVO memberVO) {
 		return "join/register";
 	}
 	
@@ -42,11 +45,14 @@ public class MemberJoinController {
 		return "join/update";
 	}
 	
-	// 회원가입 화면에서 회원가입 시 메인 페이지로
+	// 회원가입 화면에서 회원가입 시 메인 페이지로, 권한부여, 유효성 검사
 	@PostMapping("/register")
-	public String joinTrans(MemberVO memberVO) {
+	public String registerForm(@Valid MemberVO memberVO, Errors errors) {
 		memberVO.setAuth(new AuthVO(memberVO.getUserId(),"ROLE_MEMBER"));
+		if(errors.hasErrors()) {
+			return "join/register";
+		}
 		memberService.register(memberVO);
 		return "redirect:/";
-	}
+	}	
 }
