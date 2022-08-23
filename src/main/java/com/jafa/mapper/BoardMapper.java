@@ -3,6 +3,7 @@ package com.jafa.mapper;
 import java.util.List;
 
 import com.jafa.model.Board;
+import com.jafa.model.BoardAttachVO;
 import com.jafa.model.Criteria;
 
 public interface BoardMapper {
@@ -13,5 +14,7 @@ public interface BoardMapper {
 	void delete(Long bno);
 	List<Board> getList(Criteria criteria);
 	Integer totalCount(Criteria criteria);
+	
+	List<BoardAttachVO> attachList(Long bno);
 }
  

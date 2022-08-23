@@ -39,8 +39,9 @@ public class BoardController {
 	public String getList(Model model, Criteria criteria) {
 		PageMarker pageMarker = new PageMarker(criteria, service.getTotal(criteria));
 		List<Board> readAll = service.readAll(criteria);
-		model.addAttribute("pageMarker", pageMarker);
+		System.out.println(readAll);
 		model.addAttribute("list", readAll);
+		model.addAttribute("pageMarker", pageMarker);
 		return "board/list";
 	}
 	

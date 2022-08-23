@@ -37,7 +37,6 @@ public class MemberVO {
 	@Pattern(regexp = "^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$", message = "이메일 형식이 아님")
 	private String email;	
 	
-	private String address;
 	private boolean enabled;
 	private LocalDateTime regDate;
 	private LocalDateTime updateDate;

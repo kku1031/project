@@ -22,17 +22,36 @@
 			</trim>
 		</where>
 	</sql>
-	<select id="getList" resultType="com.jafa.model.Board">
+	<!-- 첨부파일 이미지로 불러오기 위한 result-Map 구성 -->
+	<resultMap type="com.jafa.model.Board" id="attach_result">
+	 	<result property="bno" column="bno" />
+	 	<result property="title" column="title" />
+	 	<result property="content" column="content" />
+	 	<result property="writer" column="writer" />
+	 	<result property="regDate" column="regDate" />
+	 	<result property="updateDate" column="updateDate" />
+	 	
+	 	<collection property="attachList" column="bno" javaType="java.util.ArrayList" 
+	 	ofType="com.jafa.model.BoardAttachVO" select="attachList"/>
+	
+	</resultMap>
+	
+	<!-- 첨부된 파일 Collection으로 불러오기 --> 
+	<select id="attachList" resultType="com.jafa.model.BoardAttachVO">
+	 	select * from attach_tbl where bno=#{bno} and fileType='1'
+	</select>		
+	
+	<select id="getList" resultMap="attach_result">
 		select * from board_tbl
 		<include refid="searchCondition"></include>
 		order by bno desc
-		limit #{pageStart}, #{perPageNum}
-		
+		limit #{pageStart}, #{perPageNum}	
 	</select>
 	
 	<select id="get" resultType="com.jafa.model.Board">
 		select * from board_tbl where bno = #{bno}
 	</select>
+	
 	<insert id="insert">
 		<selectKey keyProperty="bno" resultType="java.lang.Long" order="BEFORE">
 			  select max(bno)+1 from board_tbl

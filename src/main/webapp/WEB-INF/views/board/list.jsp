@@ -4,8 +4,7 @@
 <div class="container">
 	<div class="jumbotron">
 		<h2>게시글 목록</h2>
-	</div>	
-	
+	</div>		
 	<div class="row">
 		<div class="col-md-9">
 			<div class="listData">
@@ -40,8 +39,7 @@
 		<div class="bg-succes col-md-3 text-right">
 			<a href="register">글쓰기</a>
 		</div>
-	</div>
-	
+	</div>	
 	<table class="table">
 		<tr>
 			<th>번호</th>
@@ -55,6 +53,7 @@
 			<td>${b.bno }</td>
 			<td>
 				<a href="${b.bno}" class="article">${b.title}</a>
+				<p>${b.attachList }</p>
 			</td>
 			<td>${b.writer }</td>
 			<td>
@@ -69,6 +68,19 @@
 		</c:forEach>
 	</table>
 	
+	<!-- 첨부파일 경로 지정 -->
+	<div class="d-flex">
+		<c:forEach items="${list}" var="b">		
+			<c:if test="${not empty b.attachList}">
+			<div>
+				<a href="${b.bno}" class="get">
+					<img alt="" src="${contextPath}/display?fileName=${b.attachList[0].imageName}" style="width:200px;">
+				</a>
+			</div>
+			</c:if>
+		</c:forEach>
+	</div>
+			
 	<div class="d-flex justify-content-center">
 		<ul class="pagination my-3 py-3">
 		<c:if test="${pageMarker.prev}">
@@ -89,6 +101,7 @@
 	
 </div>
 <script>
+$(function () {	
 	//게시글로 이동(콘솔에 번호 확인)
 	$('.article').on('click',function(e){
 		e.preventDefault();
@@ -107,10 +120,9 @@
 		articleForm.attr('method','get');
 		articleForm.appendTo('body');
 		articleForm.submit();
-	});
+	});	
 	
-	
-	
+
 	// 페이지 이동 
 	$('.pagination a').on('click',function(e){
 		e.preventDefault();
@@ -122,9 +134,6 @@
 			pageForm.append($('#type')) // 검색타입
 			pageForm.append($('#keyword')) // 검색키워드		
 		}		
-		//let pageNumTag = $('<input type="hidden" name="page">')
-		//pageNumTag.val($(this).attr("href"));
-		
 		pageForm.attr('action','list');
 		pageForm.attr('method','get');
 		pageForm.appendTo('body');

@@ -42,7 +42,6 @@
 				<th>비밀번호</th>
 				<th>이름</th>
 				<th>이메일</th>
-				<th>주소</th>
 			</tr>			
 			<c:forEach items="${lists}" var="b">
 			<tr>
@@ -50,11 +49,9 @@
 					<td>${b.userPw}</td>
 					<td>${b.userName}</td>
 					<td>${b.email}</td>
-					<td>${b.address}</td>
 			</tr>		
 			</c:forEach>
-	</table>
-		
+	</table>		
 </div>
 </body>
 <%@include file="../layout/footer.jspf"%>

@@ -7,7 +7,6 @@
 		<result property="userPw" column="userPw" />
 		<result property="userName" column="userName" />
 		<result property="email" column="email" />
-		<result property="address" column="address" />
 		<result property="enabled" column="enabled" />
 		<result property="regDate" column="regDate" />
 		<result property="updateDate" column="updateDate" />
@@ -35,8 +34,8 @@
 	
 	<!-- 회원가입 -->
 	<insert id="memberInsert">
-		insert into member_tbl(userId,userPw,userName,email,address)
-		values (#{userId},#{userPw},#{userName},#{email},#{address}); 
+		insert into member_tbl(userId,userPw,userName,email)
+		values (#{userId},#{userPw},#{userName},#{email}); 
 	</insert>
 	
 	<!-- 회원권한설정 -->
@@ -53,7 +52,6 @@
 		userPw = #{userPw},
 		userName = #{userName}, 
 		email = #{email},
-		address = #{address}
 		updateDate = now()
 		where id = #{id};	
 	</update>  

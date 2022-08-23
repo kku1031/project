@@ -5,7 +5,7 @@
 	<section class="page-section" id="intro">
 		<div class="container">
 			<div class="text-center">
-				<h2 class="section-heading text-uppercase"> HG 홈페이지 </h2>
+				<h2 class="section-heading text-uppercase"> 홈페이지 정보 </h2>
 				<h3 class="section-subheading text-muted"> 상세정보 </h3>
 			</div>
 			<div class="row text-center">
@@ -14,8 +14,9 @@
 						class="fas fa-circle fa-stack-2x text-primary"></i> <i
 						class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
 					</span>
-					<h4 class="my-3">E-Commerce</h4>
-					<p class="text-muted"> </p>
+					<h4 class="my-3">E-커머스</h4>
+					<p class="text-muted"> e커머스(전자상거래)는 인터넷 웹사이트상에 구축된 가상의 상점을 통해 제품과 서비스를 사고 파는 모든 행위를 말한다. 이보다 넓은 개념으로 개인 기업 정부등 경제활동 주체들이 전화 팩스 컴퓨터 등 전자매체를 통신망과 결합해 제품이나 서비스를 사고 파는 행위를 말하기도 한다.
+					</p>
 				</div>
 				<div class="col-md-4">
 					<span class="fa-stack fa-4x"> <i
@@ -24,7 +25,7 @@
 					</span>
 					<h4 class="my-3">Responsive Design</h4>
 					<p class="text-muted">
-					
+					반응형 웹 디자인(responsive web design, RWD)이란 하나의 웹사이트에서 PC, 스마트폰, 태블릿 PC 등 접속하는 디스플레이의 종류에 따라 화면의 크기가 자동으로 변하도록 만든 웹페이지 접근 기법을 말합니다. 웹사이트를 PC용과 모바일용으로 각각 별개로 제작하지 않고, 하나의 공용 웹사이트를 만들어 다양한 디바이스에 대응할 수 있습니다. 
 					</p>
 				</div>
 				<div class="col-md-4">
@@ -32,135 +33,54 @@
 						class="fas fa-circle fa-stack-2x text-primary"></i> <i
 						class="fas fa-lock fa-stack-1x fa-inverse"></i>
 					</span>
-					<h4 class="my-3">Web Security</h4>
-					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Minima maxime quam architecto quo inventore
-						harum ex magni, dicta impedit.</p>
+					<h4 class="my-3">웹 보안 모듈</h4>
+					<p class="text-muted">웹 서비스가 증가하면서 이와 함께 응용 프로그램의 알려진 취약점을 악용하여 정상적인 서버 운영을 방해하거나 개인정보 유출 시도 등 웹 사이트 공격이 지속해서 증가하면서 공격의 종류도 다양해지고 있습니다. 이러한 공격으로부터 안전하게 보호할 수 있는 것이 웹 보안 모듈입니다.</p>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- 상품 목록 페이지-->
-	<section class="page-section bg-light" id="shop">
-		<div class="container">
-			<div class="text-center">
-				<h2 class="section-heading text-uppercase">상품 목록</h2>
-				<h3 class="section-subheading text-muted">행복을 주는 (주)HG Happiness Guitar 상품 페이지에 오신 것을 환영합니다.</h3>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-sm-6 mb-4">
-					<!-- 상품 목록 1-->					
-					<div class="shop-item">
-						<a class="shop-link" data-bs-toggle="modal" href="#shop1">
-							<div class="shop-hover">
-								<div class="shop-hover-content">
-									<i class="fas fa-plus fa-3x"></i>
-								</div>
-							</div> <img class="img-fluid" src="${contextPath}/resources/assets/img/shop/1.jpg" />
-						</a>
-						<div class="shop-caption">
-							<div class="shop-caption-heading">제목</div>
-							<div class="shop-caption-subheading text-muted">상품설명</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 mb-4">
-					<!-- 상품 목록 2-->
-					<div class="shop-item">
-						<a class="shop-link" data-bs-toggle="modal"
-							href="#shopModal2">
-							<div class="shop-hover">
-								<div class="shop-hover-content">
-									<i class="fas fa-plus fa-3x"></i>
-								</div>
-							</div> <img class="img-fluid" src="#"
-							alt="..." />
-						</a>
-						<div class="shop-caption">
-							<div class="shop-caption-heading">Explore</div>
-							<div class="shop-caption-subheading text-muted">Graphic
-								Design</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 mb-4">
-					<!-- 상품 목록 3-->
-					<div class="portfolio-item">
-						<a class="portfolio-link" data-bs-toggle="modal"
-							href="#portfolioModal3">
-							<div class="portfolio-hover">
-								<div class="portfolio-hover-content">
-									<i class="fas fa-plus fa-3x"></i>
-								</div>
-							</div> <img class="img-fluid" src="#"
-							alt="..." />
-						</a>
-						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">Finish</div>
-							<div class="portfolio-caption-subheading text-muted">Identity</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-					<!-- 상품 목록 4-->
-					<div class="shop-item">
-						<a class="shop-link" data-bs-toggle="modal"
-							href="#shopModal4">
-							<div class="portfolio-hover">
-								<div class="portfolio-hover-content">
-									<i class="fas fa-plus fa-3x"></i>
-								</div>
-							</div> <img class="img-fluid" src="#"
-							alt="..." />
-						</a>
-						<div class="portfolio-caption">
-							<div class="portfolio-caption-heading">Lines</div>
-							<div class="portfolio-caption-subheading text-muted">Branding</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-					<!-- 상품 목록 5-->
-					<div class="shop-item">
-						<a class="shop-link" data-bs-toggle="modal"
-							href="#shop5">
-							<div class="shop-hover">
-								<div class="shop-hover-content">
-									<i class="fas fa-plus fa-3x"></i>
-								</div>
-							</div> <img class="img-fluid" src="#"
-							alt="..." />
-						</a>
-						<div class="shop-caption">
-							<div class="shop-caption-heading">Southwest</div>
-							<div class="shop-caption-subheading text-muted">Website
-								Design</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<!-- 상품 목록 6-->
-					<div class="shop-item">
-						<a class="shop-link" data-bs-toggle="modal"
-							href="#shopModal6">
-							<div class="shop-hover">
-								<div class="shop-hover-content">
-									<i class="fas fa-plus fa-3x"></i>
-								</div>
-							</div> 
-							<img class="img-fluid" src="${contextPath}/resources/assets/img/shop/6.jpg"/>
-							
-						</a>
-						<div class="shop-caption">
-							<div class="shop-caption-heading">Window</div>
-							<div class="shop-caption-subheading text-muted">Photography</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Team-->
+	<section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">상품 목록</h2>
+                    <h3 class="section-subheading text-muted">행복을 주는 (주)HG Happiness Guitar 상품 페이지에 오신 것을 환영합니다.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="${contextPath}/resources/assets/img/shop/1.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">상품명 : 좋은 기타</div>
+                                <div class="portfolio-caption-subheading text-muted">가격 : 500원</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 2-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="${contextPath}/resources/assets/img/shop/6.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Explore</div>
+                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                            </div>
+                        </div>
+                    </div>
+               	</div>
+            </div> 
+    </section>        	
+	<!-- 공연일정 -->
 	<section class="page-section bg-light" id="team">
 		<div class="container">
 			<div class="text-center">
@@ -174,15 +94,9 @@
 							alt="..." />
 						<h4>Sungha Jung</h4>
 						<p class="text-muted">Special Guitarlist</p>
-						<a class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Parveen Anand Twitter Profile"><i
-							class="fab fa-twitter"></i></a> <a
-							class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Parveen Anand Facebook Profile"><i
-							class="fab fa-facebook-f"></i></a> <a
-							class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Parveen Anand LinkedIn Profile"><i
-							class="fab fa-linkedin-in"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-4">
@@ -191,15 +105,9 @@
 							alt="..." />
 						<h4>John Clayton Mayer</h4>
 						<p class="text-muted">Special Guitarlist</p>
-						<a class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Diana Petersen Twitter Profile"><i
-							class="fab fa-twitter"></i></a> <a
-							class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Diana Petersen Facebook Profile"><i
-							class="fab fa-facebook-f"></i></a> <a
-							class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Diana Petersen LinkedIn Profile"><i
-							class="fab fa-linkedin-in"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-4">
@@ -208,27 +116,20 @@
 							alt="..." />
 						<h4>Kotaro Oshio</h4>
 						<p class="text-muted">Special Guitarlist</p>
-						<a class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Larry Parker Twitter Profile"><i
-							class="fab fa-twitter"></i></a> <a
-							class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Larry Parker Facebook Profile"><i
-							class="fab fa-facebook-f"></i></a> <a
-							class="btn btn-dark btn-social mx-2" href="#!"
-							aria-label="Larry Parker LinkedIn Profile"><i
-							class="fab fa-linkedin-in"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+						<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-8 mx-auto text-center">
-					<p class="large text-muted"> 유명 기타리스트 및 가수 공연 일정은 한 달 전에 발표되니 이 점 유의해주시기 바랍니다.
-											<br> ☎ 문의 번호 : <strong> 0101-4404-3392 <strong></p>
+					<p class="large text-muted"> 유명 기타리스트 및 가수 공연 일정은 한 달 전에 발표되니 이 점 유의해주시기 바랍니다. <br> ☎ 문의 번호 : <strong> 0101-4404-3392 <strong></p>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- business partner-->
+	<!-- 협력사 -->
 	<div class="py-5">
 		<div class="container">
 			<div class="row align-items-center">
@@ -326,4 +227,5 @@
 			</form>
 		</div>
 	</section>
+	
 <%@ include file="layout/footer.jspf" %>	

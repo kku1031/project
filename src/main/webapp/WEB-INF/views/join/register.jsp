@@ -29,11 +29,8 @@
       <form:errors path="userName"/>   
       
       <form:input type="email" path="email" placeholder="이메일"/>
-      <form:errors path="email"/>      
-      
-      <form:input type="text" path="address" placeholder="주소"/> 
-      <form:errors path="address"/>
-         
+      <form:errors path="email"/>   
+        
       <a href="${contextPath}/member/login">로그인 하기</a>
       <button type="submit" class="btn btn-default">회원가입 </button>
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">

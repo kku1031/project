@@ -39,8 +39,7 @@
 	<div class="container px-4 px-lg-5">
 		<div class="container">
 			<h2>관리자 페이지</h2>
-			<div>
-				MemberVO :
+			<div>				
 				<sec:authentication property="principal.memberVO" var="member" />
 				<br> 아이디 :
 				<sec:authentication property="principal.memberVO.userId" />
@@ -50,11 +49,8 @@
 				<sec:authentication property="principal.memberVO.authList" />
 				<br>
 			</div>
-
 		</div>
-
 		<div style="margin-bottom: 10px;">
-				<a class="btn btn-secondary btn-xl" href="${contextPath}/menu/res/list">초진예약자 리스트</a>
 				<a class="btn btn-success btn-xl" href="${contextPath}/join/list">회원관리</a> 
 				<a class="btn btn-warning btn-xl" href="${contextPath}/join/update">회원수정</a>
 		</div>				
