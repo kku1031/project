@@ -26,7 +26,7 @@ public class BoardServiceImpl implements BoardService {
 	public void setMapper(BoardMapper mapper) {
 		this.mapper = mapper;
 	}
-
+	
 	@Override
 	public List<Board> readAll(Criteria criteria) {
 		return mapper.getList(criteria);
@@ -73,6 +73,7 @@ public class BoardServiceImpl implements BoardService {
 	public Integer getTotal(Criteria criteria) {
 		return mapper.totalCount(criteria);
 	}
+	
 	
 	@Override
 	public List<BoardAttachVO> getAttachList(Long bno) {

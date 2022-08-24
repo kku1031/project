@@ -20,5 +20,6 @@ public class Board {
 	private LocalDateTime regDate;
 	private LocalDateTime updateDate;
 	
+	//상품 이미지 정보
 	private List<BoardAttachVO> attachList;
 }

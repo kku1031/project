@@ -35,11 +35,11 @@ public class BoardController {
 		this.service = service;
 	}
 
+	//상품 검색
 	@GetMapping("/list")
 	public String getList(Model model, Criteria criteria) {
 		PageMarker pageMarker = new PageMarker(criteria, service.getTotal(criteria));
 		List<Board> readAll = service.readAll(criteria);
-		System.out.println(readAll);
 		model.addAttribute("list", readAll);
 		model.addAttribute("pageMarker", pageMarker);
 		return "board/list";
@@ -62,7 +62,6 @@ public class BoardController {
 	@PostMapping("/register")
 	public String register(Board board, RedirectAttributes rttr) {
 		service.register(board);
-		System.out.println(board);
 		rttr.addFlashAttribute("bno",board.getBno());
 		return "redirect:list";
 	}	
@@ -108,6 +107,7 @@ public class BoardController {
 		});
 	}	
 	
+	//글 삭제
 	@PostMapping("/remove")
 	public String remove(Long bno, RedirectAttributes rttr) {
 		List<BoardAttachVO> attachList = service.getAttachList(bno);

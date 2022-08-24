@@ -52,10 +52,12 @@
 		<tr>
 			<td>${b.bno }</td>
 			<td>
+				<a href="${b.bno}" class="get">
+					<img alt="" src="${contextPath}/display?fileName=${b.attachList[0].imageName}" style="width:100px;">
+				</a>
 				<a href="${b.bno}" class="article">${b.title}</a>
-				<p>${b.attachList }</p>
 			</td>
-			<td>${b.writer }</td>
+			<td>${b.writer}</td>
 			<td>
 				<fmt:parseDate var="regDate" value="${b.regDate}" pattern="yyyy-MM-dd'T'" type="both" />
 				<fmt:formatDate value="${regDate}" pattern="yyyy년MM월dd일" />
@@ -66,20 +68,7 @@
 			</td>
 		</tr>
 		</c:forEach>
-	</table>
-	
-	<!-- 첨부파일 경로 지정 -->
-	<div class="d-flex">
-		<c:forEach items="${list}" var="b">		
-			<c:if test="${not empty b.attachList}">
-			<div>
-				<a href="${b.bno}" class="get">
-					<img alt="" src="${contextPath}/display?fileName=${b.attachList[0].imageName}" style="width:200px;">
-				</a>
-			</div>
-			</c:if>
-		</c:forEach>
-	</div>
+	</table>	
 			
 	<div class="d-flex justify-content-center">
 		<ul class="pagination my-3 py-3">

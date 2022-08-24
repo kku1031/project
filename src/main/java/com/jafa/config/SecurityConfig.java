@@ -62,8 +62,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.logout()
 			.logoutUrl("/customLogout")
 			.invalidateHttpSession(true)
-			.deleteCookies("remember-me","JSESSION_ID");
-		
+			.deleteCookies("remember-me","JSESSION_ID")
+			.logoutSuccessUrl("/"); 
+				
 		//자동 로그인
 		http.rememberMe().key("project")
 			.tokenRepository(persistentTokenRepository)

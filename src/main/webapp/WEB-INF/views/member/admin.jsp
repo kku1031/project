@@ -52,7 +52,6 @@
 		</div>
 		<div style="margin-bottom: 10px;">
 				<a class="btn btn-success btn-xl" href="${contextPath}/join/list">회원관리</a> 
-				<a class="btn btn-warning btn-xl" href="${contextPath}/join/update">회원수정</a>
 		</div>				
 	</div>
 </body>

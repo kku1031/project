@@ -125,7 +125,6 @@ public class UploadController {
 	@ResponseBody
 	public ResponseEntity<Resource> downloadFile(
 			@RequestHeader("User-Agent") String userAgent, String fileName){
-		System.out.println(fileName);
 		Resource resource = new FileSystemResource("c:\\project\\" + fileName);
 		HttpHeaders headers = new HttpHeaders();
 		if(!resource.exists()) {

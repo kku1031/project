@@ -46,38 +46,23 @@
                     <h2 class="section-heading text-uppercase">상품 목록</h2>
                     <h3 class="section-subheading text-muted">행복을 주는 (주)HG Happiness Guitar 상품 페이지에 오신 것을 환영합니다.</h3>
                 </div>
-                <div class="row">
+              <div class="row">
+                <c:forEach var="b" items="${list}">
+                <c:if test="${not empty b.attachList[0].imageName}">
                     <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 1-->
                         <div class="portfolio-item">
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="${contextPath}/resources/assets/img/shop/1.jpg" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">상품명 : 좋은 기타</div>
-                                <div class="portfolio-caption-subheading text-muted">가격 : 500원</div>
-                            </div>
+                            	<div class="d-flex justify-content-center">
+                            		<img class="img-fluid" src="${contextPath}/display?fileName=${b.attachList[0].imageName}"/>
+                            	</div>
+                                
+                                
+                            </a>                           
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <!-- Portfolio item 2-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" src="${contextPath}/resources/assets/img/shop/6.jpg" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">Explore</div>
-                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
-                            </div>
-                        </div>
-                    </div>
-               	</div>
+                </c:if>
+               	</c:forEach>
+             </div>
             </div> 
     </section>        	
 	<!-- 공연일정 -->
