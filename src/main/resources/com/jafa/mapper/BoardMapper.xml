@@ -22,6 +22,7 @@
 			</trim>
 		</where>
 	</sql>
+	
 	<!-- 첨부파일 이미지로 불러오기 위한 result-Map 구성 -->
 	<resultMap type="com.jafa.model.Board" id="attach_result">
 	 	<result property="bno" column="bno" />

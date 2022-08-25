@@ -10,14 +10,12 @@
 			<div class="listData">
 					<input type="hidden" name="bno" id="bno" value="">
 					<input type="hidden" name="page" id="page" value="${pageMaker.criteria.page}">
-					<input type="hidden" name="type" id="type" value="${pageMaker.criteria.type}">
-					<input type="hidden" name="keyword" id="keyword" value="${pageMaker.criteria.keyword}">
 			</div>
 			<form action="${contextPath}/board/list" id="searchForm">
 				<input type="hidden" name="page" value="${pageMarker.criteria.page}">
 				<div class="row">
 					<div class="col-md-3" class="form-group">
-						<select class="form-control" name="type" id="type">
+						<select class="form-control" name="type" id="type" >
 							<option value="">검색종류선택</option>
 							<option value="T" ${param.type=='T' ? 'selected':'' }>제목</option>
 							<option value="C" ${param.type=='C' ? 'selected':'' }>내용</option>
@@ -28,7 +26,7 @@
 						</select>
 					</div>
 					<div class="col-md-7 form-group" >
-						<input type="search" id="keyword" value="${param.keyword}" class="form-control" name="keyword">
+						<input type="search" value="${param.keyword}" class="form-control" name="keyword" id="keyword">
 					</div>
 					<div class="col-md-2 form-group">
 						<button class="btn btn-primary form-control">검색</button>	
@@ -111,7 +109,6 @@ $(function () {
 		articleForm.submit();
 	});	
 	
-
 	// 페이지 이동 
 	$('.pagination a').on('click',function(e){
 		e.preventDefault();
@@ -130,17 +127,16 @@ $(function () {
 	});
 	
 	$('#searchForm button').on('click',function(e){
-			e.preventDefault();		
-		if($('#type').val().trim()==""){			
+		e.preventDefault();
+		if($('select[name="type"]').val().trim()==""){			
 			alert ("검색타입이 없습니다")		
 			return;
 		} 
-		if($('#keyword').val().trim()==""){			
+		if($('input[name="keyword"]').val().trim()==""){			
 			alert ("키워드가 없습니다")		
 			return;
 		}		
-		$('#searchForm button').submit();
-		
+		$('#searchForm').submit();
 	})
 })
 </script>

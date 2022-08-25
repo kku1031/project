@@ -11,7 +11,7 @@
 
 <div class="container">
 	<div class="jumbotron">
-		<h2>게시글 조회</h2>
+		<h2>상품 조회</h2>
 	</div>
 	<div class="getData">
 		<input type="hidden" name="page" id="page" value="${param.page}">

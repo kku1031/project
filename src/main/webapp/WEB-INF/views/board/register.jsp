@@ -3,7 +3,7 @@
 <%@ include file="../layout/header.jspf"%>
 <div class="container">
 	<div class="jumbotron my-3">
-		<h3>글 쓰기</h3>
+		<h3>상품 등록</h3>
 	</div>
 	<form action="${contextPath}/board/register" method="post" id="registerForm">
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">

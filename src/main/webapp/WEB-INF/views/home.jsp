@@ -54,9 +54,7 @@
                             <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
                             	<div class="d-flex justify-content-center">
                             		<img class="img-fluid" src="${contextPath}/display?fileName=${b.attachList[0].imageName}"/>
-                            	</div>
-                                
-                                
+                            	</div>                       
                             </a>                           
                         </div>
                     </div>
@@ -212,5 +210,6 @@
 			</form>
 		</div>
 	</section>
-	
+<%@ include file="layout/header.jspf" %>
+ -- 코드 생략 --	
 <%@ include file="layout/footer.jspf" %>	
