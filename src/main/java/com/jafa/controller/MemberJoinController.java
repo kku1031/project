@@ -36,15 +36,7 @@ public class MemberJoinController {
 		model.addAttribute("lists", lists);
 		return "join/list";
 	}
-	
-	//회원가입 된 데이터를 update 페이지로 - 회원가입페이지
-	@GetMapping("/update")
-	public String updateDate(Model model) {		
-		List<MemberVO> updates = memberService.getList();
-		model.addAttribute("update", updates);
-		return "join/update";
-	}
-	
+		
 	// 회원가입 화면에서 회원가입 시 메인 페이지로, 권한부여, 유효성 검사
 	@PostMapping("/register")
 	public String registerForm(@Valid MemberVO memberVO, Errors errors) {

@@ -11,6 +11,7 @@
 					<input type="hidden" name="bno" id="bno" value="">
 					<input type="hidden" name="page" id="page" value="${pageMaker.criteria.page}">
 			</div>
+			<!-- 검색화면 구현 -->
 			<form action="${contextPath}/board/list" id="searchForm">
 				<input type="hidden" name="page" value="${pageMarker.criteria.page}">
 				<div class="row">

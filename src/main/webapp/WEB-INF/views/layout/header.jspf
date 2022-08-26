@@ -40,7 +40,7 @@ let csrfTokenName = "${_csrf.token}";
 					<li class="nav-item"><a class="nav-link" href="${contextPath}/#team">공연일정</a></li>
 					<li class="nav-item"><a class="nav-link" href="${contextPath}/#contact">고객 문의</a></li>
 					<sec:authorize access="isAnonymous()">
-						<li class="nav-item"><a class="nav-link" href="${contextPath}/member/login">로그인</a></li>
+						<li class="nav-item"><a class="nav-link" href="${contextPath}/customLogin">로그인</a></li>
 						<li class="nav-item"><a class="nav-link" href="${contextPath}/join/register">회원가입</a></li>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">

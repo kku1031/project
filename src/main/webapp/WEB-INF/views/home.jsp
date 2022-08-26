@@ -210,6 +210,4 @@
 			</form>
 		</div>
 	</section>
-<%@ include file="layout/header.jspf" %>
- -- 코드 생략 --	
 <%@ include file="layout/footer.jspf" %>	

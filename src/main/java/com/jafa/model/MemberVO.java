@@ -1,5 +1,6 @@
 package com.jafa.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import lombok.Setter;
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
 @FiledMatch(first = "confirmPw", second = "userPw", message = "비밀번호가 일치 하지 않음")
-public class MemberVO {
+public class MemberVO implements Serializable {
 	
 	//로그인, 회원 도메인 설계 및 유효성 검사	
 	@NotEmpty(message = "아이디를 입력하세요")

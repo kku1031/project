@@ -17,9 +17,12 @@
   <div class="form-container sign-in-container">
     <form action="${contextPath}/member/login" method="POST">
       <h1> 로그인 </h1>
-      <br>      
+           
       <input type="text" name="username" placeholder="아이디" required="required" />
       <input type="password" name="password" placeholder="비밀번호" required="required" />
+      
+      <input type="checkbox" name="remember-me" id="remember-me"><label for="remember-me">자동로그인</label>
+	 			
       <a href="${contextPath}/join/register">계정이 없으십니까?</a>
       <button>로그인 </button>
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">      
